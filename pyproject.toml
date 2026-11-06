@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "magical-spell-collector"
+version = "0.1.0"
+description = "Lokale, hervatbare verzamel- en analysetool voor historische magische rituelen uit Reddit-archieven."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Robert Leach" }]
+dependencies = [
+  "PyYAML>=6.0,<7",
+  "rapidfuzz>=3.10,<4",
+  "rich>=13.9,<15",
+  "typer>=0.15,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+spell-collector = "spell_collector.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spell_collector"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/spell_collector/cli.py" = ["B008"]

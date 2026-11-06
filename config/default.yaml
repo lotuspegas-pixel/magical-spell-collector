@@ -1,0 +1,114 @@
+storage:
+  data_dir: data
+  database: data/spells.sqlite3
+  raw_dir: data/raw
+  export_dir: exports
+  log_dir: data/logs
+  max_gb: 5.0
+  reserve_free_gb: 2.0
+
+collection:
+  subreddits:
+    - Spells
+    - witchcraft
+    - magick
+    - realwitchcraft
+    - Wicca
+    - occult
+    - Witch
+    - SASSWitches
+    - pagan
+    - Hellenism
+    - Thelema
+    - chaosmagick
+  kinds: both
+  pilot_subreddit: Spells
+  pilot_max_records: 100
+  batch_size: 100
+  api_delay_seconds: 1.0
+  prefer_local_archives: true
+  allow_api_fallback: false
+
+analysis:
+  completeness_threshold: 0.72
+  review_threshold: 0.50
+  exact_duplicate_threshold: 0.98
+  near_duplicate_threshold: 0.88
+  language_hints: [en, nl]
+  search_terms:
+    - spell
+    - ritual
+    - witchcraft
+    - witchery
+    - incantation
+    - invocation
+    - enchantment
+    - manifestation
+    - charm
+    - talisman
+    - sigil
+    - blessing
+    - cleansing
+    - protection
+    - prosperity
+    - abundance
+    - love spell
+    - candle magic
+    - moon magic
+    - herbal magic
+    - divination
+    - banishing
+    - binding
+    - warding
+    - hex
+    - curse
+    - grimoire
+    - folk magic
+    - spell jar
+    - spellwork
+    - spell recipe
+    - ritual instructions
+    - altar ritual
+  categories:
+    Liefde en relaties: [love, self-love, friendship, reconciliation, attraction, relationship]
+    Geld en voorspoed: [money, wealth, prosperity, abundance, business, luck]
+    Bescherming: [protection, warding, shielding, house protection, talisman]
+    Reiniging: [cleansing, purification, banishing, new beginning]
+    Maan- en natuurmagie: [moon, lunar, season, element, nature]
+    Dromen en intuïtie: [dream, lucid, meditation, intuition, vision, divination]
+    Kaarsen, kruiden en kristallen: [candle, herb, crystal, incense]
+    Sigils en symbolen: [sigil, rune, symbol, amulet, talisman]
+    Ceremoniële magie: [invocation, incantation, ceremonial, grimoire, occult]
+    Overige tradities: [folklore, ancestor, chaos magic, Wicca, pagan, regional]
+
+ollama:
+  enabled: false
+  base_url: http://127.0.0.1:11434
+  model: ""
+  timeout_seconds: 120
+
+export:
+  include_original_text: false
+  require_rights_approval_for_full_text: true
+  csv_encoding: utf-8-sig
+  markdown_per_category: true
+
+safety:
+  exclude_flagged_from_publication: true
+  hazardous_terms:
+    - poison
+    - toxic
+    - ingest
+    - drink
+    - blood
+    - open flame
+    - fire
+    - bleach
+    - mercury
+    - lead
+    - self-harm
+
+rights:
+  default_status: UNKNOWN
+  publication_requires_permission: true
+  retain_source_author: true

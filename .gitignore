@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Lokale verzameldata en modellen worden nooit gecommit.
+data/**
+exports/**
+logs/
+qa/
+*.db
+*.db-shm
+*.db-wal
+.env
+
+# Houd mappen en veilige voorbeelden wel bij.
+!data/.gitkeep
+!exports/.gitkeep
+!exports/README.md
